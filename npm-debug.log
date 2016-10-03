@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/vagrant/.nvm/versions/node/v6.4.0/bin/node',
+1 verbose cli   '/home/vagrant/.nvm/versions/node/v6.4.0/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'tsc',
+1 verbose cli   '-w' ]
+2 info using npm@3.10.3
+3 info using node@v6.4.0
+4 verbose run-script [ 'pretsc', 'tsc', 'posttsc' ]
+5 info lifecycle angular-quickstart@1.0.0~pretsc: angular-quickstart@1.0.0
+6 silly lifecycle angular-quickstart@1.0.0~pretsc: no script for pretsc, continuing
+7 info lifecycle angular-quickstart@1.0.0~tsc: angular-quickstart@1.0.0
+8 verbose lifecycle angular-quickstart@1.0.0~tsc: unsafe-perm in lifecycle true
+9 verbose lifecycle angular-quickstart@1.0.0~tsc: PATH: /home/vagrant/.nvm/versions/node/v6.4.0/lib/node_modules/npm/bin/node-gyp-bin:/vagrant/angular-quickstart/node_modules/.bin:/home/vagrant/.nvm/versions/node/v6.4.0/bin:/home/vagrant/.nvm/versions/node/v6.4.0/lib/node_modules/npm/bin/node-gyp-bin:/vagrant/angular-quickstart/node_modules/.bin:/home/vagrant/.nvm/versions/node/v6.4.0/bin:/usr/local/heroku/bin:/home/vagrant/.nvm/versions/node/v6.4.0/bin:/usr/local/rvm/gems/ruby-2.3.0/bin:/usr/local/rvm/gems/ruby-2.3.0@global/bin:/usr/local/rvm/rubies/ruby-2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/rvm/bin:/opt/vagrant_ruby/bin
+10 verbose lifecycle angular-quickstart@1.0.0~tsc: CWD: /vagrant/angular-quickstart
+11 silly lifecycle angular-quickstart@1.0.0~tsc: Args: [ '-c', 'tsc' ]
+12 info lifecycle angular-quickstart@1.0.0~tsc: Failed to exec tsc script
+13 verbose stack Error: angular-quickstart@1.0.0 tsc: `tsc`
+13 verbose stack spawn ENOENT
+13 verbose stack     at ChildProcess.<anonymous> (/home/vagrant/.nvm/versions/node/v6.4.0/lib/node_modules/npm/lib/utils/spawn.js:33:16)
+13 verbose stack     at emitTwo (events.js:106:13)
+13 verbose stack     at ChildProcess.emit (events.js:191:7)
+13 verbose stack     at maybeClose (internal/child_process.js:852:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+14 verbose pkgid angular-quickstart@1.0.0
+15 verbose cwd /vagrant/angular-quickstart
+16 error Linux 3.2.0-101-generic-pae
+17 error argv "/home/vagrant/.nvm/versions/node/v6.4.0/bin/node" "/home/vagrant/.nvm/versions/node/v6.4.0/bin/npm" "run" "tsc" "-w"
+18 error node v6.4.0
+19 error npm  v3.10.3
+20 error file sh
+21 error code ELIFECYCLE
+22 error errno ENOENT
+23 error syscall spawn
+24 error angular-quickstart@1.0.0 tsc: `tsc`
+24 error spawn ENOENT
+25 error Failed at the angular-quickstart@1.0.0 tsc script 'tsc'.
+25 error Make sure you have the latest version of node.js and npm installed.
+25 error If you do, this is most likely a problem with the angular-quickstart package,
+25 error not with npm itself.
+25 error Tell the author that this fails on your system:
+25 error     tsc
+25 error You can get information on how to open an issue for this project with:
+25 error     npm bugs angular-quickstart
+25 error Or if that isn't available, you can get their info via:
+25 error     npm owner ls angular-quickstart
+25 error There is likely additional logging output above.
+26 verbose exit [ 1, true ]
