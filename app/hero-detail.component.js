@@ -10,11 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 //importing these decorators from Angular because we're going to need them
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
+var hero_service_1 = require('./hero.service');
 var hero_1 = require('./hero');
 //metadata:
 var HeroDetailComponent = (function () {
-    function HeroDetailComponent() {
+    function HeroDetailComponent(heroService, route, location) {
+        this.heroService = heroService;
+        this.route = route;
+        this.location = location;
     }
+    //convert the route parameter value to a number with the JavaScript (+) operator
+    HeroDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            var id = +params['id'];
+            _this.heroService.getHero(id)
+                .then(function (hero) { return _this.hero = hero; });
+        });
+    };
+    //using the Location service we injected
+    HeroDetailComponent.prototype.goBack = function () {
+        this.location.back();
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', hero_1.Hero)
@@ -22,9 +41,11 @@ var HeroDetailComponent = (function () {
     HeroDetailComponent = __decorate([
         core_1.Component({
             selector: 'my-hero-detail',
-            template: "\n    <div *ngIf=\"hero\">\n    <h2>{{hero.name}} details!</h2>\n    <div><label>id: </label>{{hero.id}}</div>\n    <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n    </div>\n  </div>\n  "
+            templateUrl: 'hero-detail.component.html',
+            styleUrls: ['hero-detail.component.css'],
+            moduleId: module.id
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.ActivatedRoute, common_1.Location])
     ], HeroDetailComponent);
     return HeroDetailComponent;
 }());

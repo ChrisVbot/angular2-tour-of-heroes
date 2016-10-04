@@ -10,8 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var hero_service_1 = require('./hero.service');
+var router_1 = require('@angular/router');
 var DashboardComponent = (function () {
-    function DashboardComponent(heroService) {
+    //inject the HeroService in the constructor and hold it in a private heroService field
+    function DashboardComponent(router, heroService) {
+        this.router = router;
         this.heroService = heroService;
         this.heroes = [];
     }
@@ -20,15 +23,21 @@ var DashboardComponent = (function () {
         this.heroService.getHeroes()
             .then(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
     };
-    DashboardComponent.prototype.gotoDetail = function (hero) { };
+    //sets a route link parameters array
+    //passes the array to the router's navigate method
+    DashboardComponent.prototype.gotoDetail = function (hero) {
+        var link = ['/detail', hero.id];
+        this.router.navigate(link);
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'my-dashboard',
             templateUrl: 'dashboard.component.html',
+            styleUrls: ['dashboard.component.css'],
             //module relative loading of template url
             moduleId: module.id
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService])
+        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

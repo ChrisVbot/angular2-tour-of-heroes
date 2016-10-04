@@ -13,6 +13,7 @@ import { routing } from './app.routing';
 
 import { DashboardComponent} from './dashboard.component';
 
+
 @NgModule({
   imports:      [ 
     BrowserModule,
@@ -22,7 +23,7 @@ import { DashboardComponent} from './dashboard.component';
   declarations: [ 
     AppComponent,
     DashboardComponent,
-    HeroDetailComponent ,
+    HeroDetailComponent,
     HeroesComponent
   ],
   providers: [
