@@ -33,6 +33,33 @@ var HeroesComponent = (function () {
     HeroesComponent.prototype.gotoDetail = function () {
         this.router.navigate(['/detail', this.selectedHero.id]);
     };
+    //when the given name is non-blank, the handler delegates creation of the named hero to the hero service,
+    //then adds the new hero to our array
+    HeroesComponent.prototype.add = function (name) {
+        var _this = this;
+        name = name.trim();
+        if (!name) {
+            return;
+        }
+        this.heroService.create(name)
+            .then(function (hero) {
+            _this.heroes.push(hero);
+            _this.selectedHero = null;
+        });
+    };
+    //delegate deletion to the hero service but the component is still responsible for updating the display
+    //it removes the deleted hero from the array and resets the selected hero if necessary
+    HeroesComponent.prototype.delete = function (hero) {
+        var _this = this;
+        this.heroService
+            .delete(hero.id)
+            .then(function () {
+            _this.heroes = _this.heroes.filter(function (h) { return h !== hero; });
+            if (_this.selectedHero === hero) {
+                _this.selectedHero = null;
+            }
+        });
+    };
     HeroesComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

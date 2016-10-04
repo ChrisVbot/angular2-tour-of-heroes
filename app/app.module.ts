@@ -1,6 +1,15 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+
+// Imports for loading & configuring the in-memory web api
+//basically a way of faking http server requests
+//replaces the defaut Http client backend with an in-memory web API alternative service
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
 
 import { AppComponent } from './app.component';
 
@@ -18,6 +27,8 @@ import { DashboardComponent} from './dashboard.component';
   imports:      [ 
     BrowserModule,
     FormsModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     routing
   ],
   declarations: [ 
